@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="id-card.png" type="image/png">
+    <style>
+        /* Updated style for body to include background image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the image covers the entire viewport */
+        }
+
+       .container {
+            max-width: max-content;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+       .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: marquee-scroll 20s linear infinite;
+        }
+
+       .marquee-text {
+            animation: blink-glow 1s linear infinite alternate;
+            color: #ff0000;
+            font-size: 18px;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes blink-glow {
+            0% { text-shadow: 0 0 10px #ff0000; }
+            50% { text-shadow: 0 0 20px #ffcc00; }
+            100% { text-shadow: 0 0 10px #ff0000; }
+        }
+
+       .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        .submitBtn {
+            width: 120px;
+            height: 40px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(to left,rgb(230, 35, 0),rgb(255, 174, 0));
+            letter-spacing: 0.7px;
+            }
+
+            .submitBtn:hover .arrow {
+            animation: slide-in-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+
+            @keyframes slide-in-left {
+            0% {
+                transform: translateX(-10px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+            }
+
+            .submitBtn:active {
+            transform: scale(0.97);
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="marquee">
+            <span class="marquee-text">Admission for session 2024-2025 is going on. Enroll soon before due date!</span>
+        </div>
+        <h2>Admission Form</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <button class="submitBtn">
+                Submit
+                <svg fill="white" viewBox="0 0 448 512" height="1em" class="arrow"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
+              </button>
+        </form>
+    </div>
+</body> 
