@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration</title>
     <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" href="id-card.png" type="image/png">
 </head>
 <body>
     <h1>Student Registration</h1>
@@ -12,18 +13,16 @@
         <label for="class">Class:</label>
         <select name="class" id="class">
             <option value="">Select</option>
-            <option value="class-11">Class XI</option>
-            <option value="class-12">Class XII</option>
+            <option value="class-10">KG - Class X</option>
+            <option value="class-12">Class XI - Class XII</option>
         </select>
+
         <div id="class-info">
             <label for="standard">Standard:</label>
             <input type="text" name="standard" id="standard">
 
             <label for="previous-school">Name of previous school (if attended):</label>
             <input type="text" name="previous-school" id="previous-school">
-
-            <label for="marks">Marks achieved:</label>
-            <input type="text" name="marks" id="marks">
 
             <label for="percentage">Percentage achieved:</label>
             <input type="text" name="percentage" id="percentage">
@@ -49,20 +48,102 @@
             <label for="other-phone-number">Additional Phone No.:</label>
             <input type="text" name="other-phone-number" id="other-phone-number">
         </div>
+        
+        <div class="container" id="class-xi-xii-info" style="display: none;">
+            <h1>Choose Stream</h1>
+            <!-- Add fields relevant to Class XI - Class XII here -->
+            <div class="radio-group">
+                <input type="radio" id="science" name="stream" value="science">
+                <label for="science">Science</label>
+              </div>
+              <div class="radio-group">
+                <input type="radio" id="arts" name="stream" value="arts">
+                <label for="arts">Arts</label>
+              </div>
+              <div class="radio-group">
+                <input type="radio" id="commerce" name="stream" value="commerce">
+                <label for="commerce">Commerce</label>
+              </div>
+              <div id="subject-selection" style="display: none;">
+                <h2>Choose Subjects:</h2>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="physics" name="subjects[]" value="physics">
+                  <label for="physics">Physics</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="chemistry" name="subjects[]" value="chemistry">
+                  <label for="chemistry">Chemistry</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="maths" name="subjects[]" value="maths">
+                  <label for="maths">Mathematics</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="biology" name="subjects[]" value="biology" disabled>
+                  <label for="biology">Biology (Only for Science Stream)</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="history" name="subjects[]" value="history" disabled>
+                  <label for="history">History (Only for Arts Stream)</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="economics" name="subjects[]" value="economics" disabled>
+                  <label for="economics">Economics (Only for Commerce Stream)</label>
+                </div>
+              </div>
+        </div>
 
         <button type="submit">Submit</button>
     </form>
     <script>
         const classSelect = document.getElementById('class');
         const classInfo = document.getElementById('class-info');
+        const classXiXiiInfo = document.getElementById('class-xi-xii-info'); // New variable for the new section
+
 
         classSelect.addEventListener('change', function() {
-            if (classSelect.value === 'class-11' || classSelect.value === 'class-12') {
-                classInfo.style.display = 'block';
-            } else {
-                classInfo.style.display = 'none';
-            }
-        });
+    if (classSelect.value === 'class-10') {
+        classInfo.style.display = 'block';
+        classXiXiiInfo.style.display = 'none'; // Hide the new section when KG - Class X is selected
+    } else if (classSelect.value === 'class-12') {
+        classInfo.style.display = 'none';
+        classXiXiiInfo.style.display = 'block'; // Show the new section when Class XI - Class XII is selected
+    } else {
+        classInfo.style.display = 'none';
+        classXiXiiInfo.style.display = 'none'; // Ensure both sections are hidden if no option is selected
+    }
+    });
+
+    // Updated to target the correct elements within class-xi-xii-info
+    const subjectSelection = document.getElementById('subject-selection');
+    const scienceRadio = document.getElementById('science');
+    const artsRadio = document.getElementById('arts');
+    const commerceRadio = document.getElementById('commerce');
+    const biologyCheckbox = document.getElementById('biology');
+    const historyCheckbox = document.getElementById('history');
+    const economicsCheckbox = document.getElementById('economics');
+
+    // Attach the event listener to class-xi-xii-info instead of stream-selection-form
+    classXiXiiInfo.addEventListener('change', function(event) {
+        if (scienceRadio.checked) {
+            subjectSelection.style.display = 'block';
+            biologyCheckbox.disabled = false;
+            historyCheckbox.disabled = true;
+            economicsCheckbox.disabled = true;
+        } else if (artsRadio.checked) {
+            subjectSelection.style.display = 'block';
+            biologyCheckbox.disabled = true;
+            historyCheckbox.disabled = false;
+            economicsCheckbox.disabled = true;
+        } else if (commerceRadio.checked) {
+            subjectSelection.style.display = 'block';
+            biologyCheckbox.disabled = true;
+            historyCheckbox.disabled = true;
+            economicsCheckbox.disabled = false;
+        } else {
+            subjectSelection.style.display = 'none';
+        }
+    });
     </script>
 </body>
 </html>

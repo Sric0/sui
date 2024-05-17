@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 20px;
 }
 
 h1, h2 {
@@ -17,7 +18,7 @@ label, input, select {
     margin-bottom: 10px;
 }
 
-input, select {
+input, select, textarea {
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -38,3 +39,38 @@ button {
 #class-info {
     display: none;
 }
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+  }
+
+  .radio-group,
+.checkbox-group {
+  margin-bottom: 10px;
+}
+
+label {
+    margin-right: 10px;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  #subject-selection {
+    margin-top: 20px;
+  }
+  
+  #subject-selection button {
+    float: right;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
