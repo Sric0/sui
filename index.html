@@ -115,12 +115,18 @@
     </style>
 </head>
 <body>
+    <script>
+        document.getElementById('admissionForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent the default form submission
+          window.location.href = 'detail.html'; // Redirect to detail.html
+        });
+      </script>
     <div class="container">
         <div class="marquee">
             <span class="marquee-text">Admission for session 2024-2025 is going on. Enroll soon before due date!</span>
         </div>
         <h2>Admission Form</h2>
-        <form action="#" method="POST">
+        <form id="admissionForm" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>

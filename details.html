@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <h1>Student Registration</h1>
+    <form>
+        <label for="class">Class:</label>
+        <select name="class" id="class">
+            <option value="">Select</option>
+            <option value="class-11">Class XI</option>
+            <option value="class-12">Class XII</option>
+        </select>
+        <div id="class-info">
+            <label for="standard">Standard:</label>
+            <input type="text" name="standard" id="standard">
+
+            <label for="previous-school">Name of previous school (if attended):</label>
+            <input type="text" name="previous-school" id="previous-school">
+
+            <label for="marks">Marks achieved:</label>
+            <input type="text" name="marks" id="marks">
+
+            <label for="percentage">Percentage achieved:</label>
+            <input type="text" name="percentage" id="percentage">
+
+            <label for="permanent-address">Permanent Address:</label>
+            <textarea name="permanent-address" id="permanent-address"></textarea>
+
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city">
+
+            <label for="state">State:</label>
+            <input type="text" name="state" id="state">
+
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country">
+
+            <label for="father-name">Father's name:</label>
+            <input type="text" name="father-name" id="father-name">
+
+            <label for="mother-name">Mother's name:</label>
+            <input type="text" name="mother-name" id="mother-name">
+
+            <label for="other-phone-number">Additional Phone No.:</label>
+            <input type="text" name="other-phone-number" id="other-phone-number">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const classSelect = document.getElementById('class');
+        const classInfo = document.getElementById('class-info');
+
+        classSelect.addEventListener('change', function() {
+            if (classSelect.value === 'class-11' || classSelect.value === 'class-12') {
+                classInfo.style.display = 'block';
+            } else {
+                classInfo.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
